@@ -1,0 +1,8 @@
+options.abtbta.title=Another Better Than Better Than Adventure
+options.abtbta.category.general=通用
+options.abtbta.overrideRecipes=覆写配方
+options.abtbta.legacyArmorProtection=旧版护甲机制
+options.abtbta.verticalArmorBar=竖直
+options.abtbta.flipArmorBar=翻转
+options.abtbta.legacyArmorBar=旧版盔甲条显示
+abtbta.gui.options.button.done.requires_restart=完成（需要重启）

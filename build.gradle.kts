@@ -18,6 +18,7 @@ loom {
 	val btaChannel = libs.versions.btaChannel.get()
 	val btaVersion = (if (btaChannel == "nightly") "" else "v") + libs.versions.bta.get()
     customMinecraftMetadata.set("https://downloads.betterthanadventure.net/bta-client/${btaChannel}/$btaVersion/manifest.json")
+	accessWidenerPath = file("src/main/resources/abtbta.accesswidener")
 }
 repositories {
     mavenCentral()
@@ -47,7 +48,7 @@ dependencies {
 	compileOnly(libs.slf4jApi)
 
 	// Only required for development/launch at runtime, won't be part of any builds
-	localRuntime(libs.modMenu) // Optional, can be removed
+	implementation(libs.modMenu) // Optional, can be removed
 	runtimeClasspath(libs.clientJar)
 	val lwjglVer = libs.versions.lwjgl.get()
 	localRuntime(platform("org.lwjgl:lwjgl-bom:${lwjglVer}"))

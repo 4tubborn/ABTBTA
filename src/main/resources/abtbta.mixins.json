@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "package": "stubborn.abtbta.mixin",
+  "mixinextras": {
+    "minVersion": "0.5.0"
+  },
+  "compatibilityLevel": "JAVA_${java}",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "IArmorWearingMixin",
+    "activator.BlockLogicActivatorMixin",
+    "activator.MenuActivatorMixin",
+    "activator.TileEntityActivatorMixin"
+  ],
+  "client": [
+    "HudComponentArmorBarMixin",
+    "HudComponentsMixin",
+    "ScreenOptionsMixin",
+    "activator.ScreenActivatorMixin"
+  ]
+}

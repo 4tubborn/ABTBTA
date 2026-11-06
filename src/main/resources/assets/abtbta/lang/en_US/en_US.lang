@@ -1,0 +1,8 @@
+options.abtbta.title=Another Better Than Better Than Adventure
+options.abtbta.category.general=General
+options.abtbta.overrideRecipes=Override Recipes
+options.abtbta.legacyArmorProtection=Classic Armor Protection
+options.abtbta.verticalArmorBar=Vertical
+options.abtbta.flipArmorBar=Flip
+options.abtbta.legacyArmorBar=Classic Armor Bar
+abtbta.gui.options.button.done.requires_restart=Done (Needs Restart)

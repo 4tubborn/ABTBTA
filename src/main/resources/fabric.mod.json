@@ -1,27 +1,37 @@
 {
 	"schemaVersion": 1,
-	"id": "examplemod",
+	"id": "abtbta",
 	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This mod aims to help new BTA modders.",
+	"name": "Another Better Than Better Than Adventure",
+	"description": "Another Better Than Better Than Adventure (ABTBTA) reworks Better Than Adventure's gameplay mechanics, restoring vanilla behaviors and making others more vanilla-like.",
 	"authors": [
-		"Turnip Labs"
+		"4tubborn"
 	],
 	"contact": {
 		"homepage": "",
 		"sources": ""
 	},
 	"icon": "icon.png",
-	"license": "CC0-1.0",
+	"license": "GPL-3.0-only",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"turniplabs.examplemod.ExampleMod"
+			"stubborn.abtbta.ABTBTA"
+		],
+		"modmenu": [
+			"stubborn.abtbta.compact.ModMenu"
+		],
+		"client": [
+			"stubborn.abtbta.ABTBTAClient"
+		],
+		"initOptions": [
+			"stubborn.abtbta.ABTBTAClient"
 		]
 	},
 	"mixins": [
-		"examplemod.mixins.json"
+		"abtbta.mixins.json"
 	],
+	"accessWidener": "abtbta.accesswidener",
 	"depends": {
 		"fabricloader": ">=${fabricloader}",
 		"minecraft": "*",
