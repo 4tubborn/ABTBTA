@@ -1,12 +1,19 @@
 package stubborn.abtbta;
 
 import net.minecraft.core.block.Blocks;
+import net.minecraft.core.data.registry.Registries;
+import net.minecraft.core.data.registry.recipe.RecipeSymbol;
+import net.minecraft.core.data.registry.recipe.entry.RecipeEntryCraftingShaped;
+import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
 import stubborn.abtbta.config.ABTBTAOptions;
 import stubborn.abtbta.helper.RecipeModifier;
 import turniplabs.halplibe.helper.recipeBuilders.modifiers.WorkbenchModifier;
 
+import java.util.Set;
+
 public class RecipesModifier {
+	private RecipesModifier() {}
 
 	public static void register() {
 
@@ -23,7 +30,7 @@ public class RecipesModifier {
 				Items.BED.getDefaultStack()
 			);*/
 
-		RecipeModifier.shaped(
+		/*RecipeModifier.shaped(
 			hide,
 			"minecraft",
 			"bed",
@@ -35,7 +42,7 @@ public class RecipesModifier {
 				)
 				.addInput('W', "minecraft:wools")
 				.addInput('P', "minecraft:planks")
-		);
+		);*/
 
 		RecipeModifier.shaped(
 			hide,
@@ -101,6 +108,8 @@ public class RecipesModifier {
 			new WorkbenchModifier("minecraft").removeRecipe("dough");
 		}
 
+		modify();
+
 		/*
 			RecipeBuilder.Shaped(NamespaceID.DEFAULT_NAMESPACE)
 				.setShape(
@@ -114,5 +123,54 @@ public class RecipesModifier {
 					Items.BED.getDefaultStack()
 				);
 		*/
+	}
+
+	private static final String FABRIC_GROUP = "abtbta:fabric";
+
+	private static final Set<String> TARGET_IDS = Set.of(
+		Blocks.WOOL.getKey(),
+		Items.CLOTH.getKey()
+	);
+
+	private static void modify() {
+		//int replacements = 0;
+
+		for (var entry : Registries.RECIPES.getAllRecipes()) {
+
+			if (!(entry instanceof RecipeEntryCraftingShaped recipe)) {
+				continue;
+			}
+
+			RecipeSymbol[] inputs = recipe.getInput();
+
+			for (int i = 0; i < inputs.length; i++) {
+				RecipeSymbol original = inputs[i];
+
+				if (original == null || original.getStack() == null || original.getItemGroup() != null) {
+					continue;
+				}
+
+				ItemStack stack = original.getStack();
+
+				if (!isTarget(stack)) {
+					continue;
+				}
+
+				inputs[i] = new RecipeSymbol(original.getSymbol(),
+					null,
+					FABRIC_GROUP,
+					original.getAmount()
+				);
+
+				//replacements++;
+			}
+		}
+
+		//System.out.println("ABTBTA: Replaced " + replacements + " recipe ingredients");
+	}
+
+	private static boolean isTarget(ItemStack stack) {
+		String id = stack.getItem().getKey();
+		return TARGET_IDS.contains(id);
 	}
 }

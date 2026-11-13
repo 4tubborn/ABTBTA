@@ -1,6 +1,11 @@
 package stubborn.abtbta;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.core.block.Blocks;
+import net.minecraft.core.data.registry.Registries;
+import net.minecraft.core.item.Item;
+import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.item.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import stubborn.abtbta.config.ABTBTAOptions;
@@ -29,6 +34,14 @@ public class ABTBTA implements ModInitializer {
 	}
 
 	private void onRecipesReady() {
+		var fabricList = Registries.ITEM_GROUPS.getItem("minecraft:wools");
+		fabricList.add((new ItemStack(Items.CLOTH)));
+
+		Registries.ITEM_GROUPS.register(
+			"abtbta:fabric",
+			fabricList
+		);
+
 		RecipesModifier.register();
 		LOGGER.info("RecipesModifier modified.");
 	}
