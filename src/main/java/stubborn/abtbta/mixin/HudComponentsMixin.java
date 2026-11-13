@@ -18,7 +18,7 @@ import stubborn.abtbta.gui.hud.component.HudComponentLegacyArmorBar;
 
 @Mixin(HudComponents.class)
 public class HudComponentsMixin {
-
+	// register hud components
 	@Inject(method = "<clinit>", at = @At("TAIL"))
 	private static void abtbta$registerArmor(CallbackInfo ci) {
 		HudComponents.register(

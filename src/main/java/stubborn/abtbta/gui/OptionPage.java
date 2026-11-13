@@ -22,11 +22,9 @@ public class OptionPage {
 			.withComponent(new BooleanOptionComponent(ABTBTAOptions.LEGACY_ARMOR_BAR))
 		);
 
-
 	public static void register() {
 		OptionsPages.register(abtbtaOptions);
 	}
-
 	public static Screen getOptionsPage(Screen parent) {
 		return new ScreenOptions(parent, abtbtaOptions);
 	}

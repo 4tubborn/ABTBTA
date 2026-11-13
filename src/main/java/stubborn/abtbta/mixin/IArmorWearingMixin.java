@@ -16,7 +16,8 @@ import stubborn.abtbta.config.ABTBTAOptions;
 
 @Mixin(IArmorWearing.class)
 public interface IArmorWearingMixin {
-
+	// mimic Beta 1.7.3's armor protection system,
+	// where damage reduction depends on the armor's remaining durability.
 	@WrapOperation(
 		method = "getTotalProtectionAmount",
 		at = @At(

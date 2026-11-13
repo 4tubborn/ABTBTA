@@ -22,7 +22,7 @@ import stubborn.abtbta.config.ABTBTAOptions;
 @Environment(EnvType.CLIENT)
 public class HudComponentLegacyArmorBar extends HudComponentMovable {
 
-	// bta
+	// from bta asset, vertical mode icon is designed with Blockbench
 	private final IconCoordinate armor =
 		TextureRegistry.getTexture("abtbta:gui/hud/armor/full");
 	private final IconCoordinate armorHalf =

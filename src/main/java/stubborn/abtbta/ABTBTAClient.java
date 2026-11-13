@@ -7,7 +7,7 @@ import turniplabs.halplibe.event.defs.ClientEvents;
 import turniplabs.halplibe.util.OptionsInitEntrypoint;
 
 import turniplabs.halplibe.util.dependency.Key;
-
+// deprecated OptionsInitEntrypoint, but no alternatives
 public class ABTBTAClient  implements ClientModInitializer, OptionsInitEntrypoint {
 	@Override
 	public void onInitializeClient() {
